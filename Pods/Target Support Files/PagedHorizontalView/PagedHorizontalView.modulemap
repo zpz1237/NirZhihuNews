@@ -1,0 +1,6 @@
+framework module PagedHorizontalView {
+  umbrella header "PagedHorizontalView-umbrella.h"
+
+  export *
+  module * { export * }
+}
