@@ -7,22 +7,47 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class zhihuNewsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
-    
-    let items: [(image: String, label: String)] = [
-        ("1", "NASA黎明号团队唯一会讲中文的人说"),
-        ("2", "这里展示的是获得的文章标题是两行文字的情况"),
-        ("3", "The third image from space"),
-        ("4", "The fourth image from space"),
-        ("5", "The fifth image from space")]
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        refreshData()
+        
+        print(zdl().topItems.count)
+        print("viewDidLoad")
+        
         self.navigationController?.navigationBar.lt_setBackgroundColor(UIColor.clearColor())
+    }
+    
+    func refreshData() {
+        
+        Alamofire.request(.GET, URLString: "http://news-at.zhihu.com/api/4/news/latest").responseJSON(completionHandler: { (_, _, data, error) -> Void in
+            guard error == nil else {
+                print("获取数据失败")
+                return
+            }
+            let jsonTopStories = JSON(data!)["top_stories"]
+            self.zdl().topItems.removeAll()
+            
+            for i in 0 ..< jsonTopStories.count {
+                self.zdl().topItems.append((jsonTopStories[i]["image"].string!, String(jsonTopStories[i]["id"]), jsonTopStories[i]["title"].string!))
+            }
+            
+            print(self.zdl().topItems.count)
+            print("refreshData")
+            
+        })
+        
+    }
+    
+    func zdl() -> AppDelegate {
+        return UIApplication.sharedApplication().delegate as! AppDelegate
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -76,13 +101,16 @@ class zhihuNewsViewController: UIViewController, UITableViewDataSource, UITableV
 extension zhihuNewsViewController : UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        print(zdl().topItems.count)
+        print("numberOfItem")
+        return zdl().topItems.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! PageCollectionViewCell
-        let item = items[indexPath.item]
-        cell.imageView.image = UIImage(named: item.image)
+        
+        let item = zdl().topItems[indexPath.item]
+        cell.imageView.sd_setImageWithURL(NSURL(string: item.image))
         cell.label.text = item.label
         cell.label.verticalAlignment = VerticalAlignmentBottom
         
