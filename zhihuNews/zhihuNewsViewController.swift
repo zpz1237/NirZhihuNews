@@ -36,8 +36,8 @@ class zhihuNewsViewController: UIViewController, UITableViewDataSource, UITableV
             return cellHead
         }
         
-        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "news")
-        cell.textLabel?.text = "XXXXXXXXXX"
+        let cell = tableView.dequeueReusableCellWithIdentifier("news") as! NewsTableViewCell
+        cell.label.verticalAlignment = VerticalAlignmentTop
         return cell
         
     }
@@ -46,7 +46,7 @@ class zhihuNewsViewController: UIViewController, UITableViewDataSource, UITableV
         if indexPath.row == 0 {
             return self.view.frame.height / 3
         }
-        return 44
+        return 90
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,7 +54,7 @@ class zhihuNewsViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        let color = UIColor(red: 0/255.0, green: 175/255.0, blue: 240/255.0, alpha: 1)
+        let color = UIColor(red: 0/255.0, green: 139/255.0, blue: 255/255.0, alpha: 1)
         let offsetY = scrollView.contentOffset.y
         if offsetY > 20 {
             let alpha = min(1, 1 - ((20 + 64 - offsetY) / 64))
@@ -70,7 +70,6 @@ class zhihuNewsViewController: UIViewController, UITableViewDataSource, UITableV
         self.scrollViewDidScroll(self.tableView)
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
-
 
 }
 

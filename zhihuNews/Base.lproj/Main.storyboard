@@ -43,10 +43,10 @@
                                                             </collectionViewFlowLayout>
                                                             <cells>
                                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Eg6-VH-84P" customClass="PageCollectionViewCell" customModule="zhihuNews" customModuleProvider="target">
-                                                                    <rect key="frame" x="1" y="0.0" width="600" height="190"/>
+                                                                    <rect key="frame" x="0.5" y="0.0" width="599.5" height="190"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="190"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="599.5" height="190"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OH0-vD-U91">
@@ -126,15 +126,47 @@
                                             <outlet property="pageView" destination="Yq8-AH-SOn" id="j4v-bR-tJu"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="news" id="cyj-55-VIO">
-                                        <rect key="frame" x="0.0" y="205" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="news" rowHeight="90" id="cyj-55-VIO" customClass="NewsTableViewCell" customModule="zhihuNews" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="205" width="600" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cyj-55-VIO" id="edh-CZ-Lhe">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zhihuBlue" translatesAutoresizingMaskIntoConstraints="NO" id="efn-Pp-UVm">
+                                                    <rect key="frame" x="510" y="15" width="75" height="60"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="D9V-3h-z8L"/>
+                                                        <constraint firstAttribute="width" constant="75" id="R4G-z2-ExY"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国没有很蓝很梦幻的海，主要原因并不是污染（委屈脸）" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVG-t6-UNb" customClass="myUILabel">
+                                                    <rect key="frame" x="15" y="14" width="480" height="61"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                            </subviews>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstItem="DVG-t6-UNb" firstAttribute="top" secondItem="edh-CZ-Lhe" secondAttribute="topMargin" constant="6" id="CBb-nB-tXI"/>
+                                                <constraint firstItem="efn-Pp-UVm" firstAttribute="leading" secondItem="DVG-t6-UNb" secondAttribute="trailing" constant="15" id="Lhv-cO-xao"/>
+                                                <constraint firstItem="DVG-t6-UNb" firstAttribute="leading" secondItem="edh-CZ-Lhe" secondAttribute="leadingMargin" constant="7" id="MXf-Py-clU"/>
+                                                <constraint firstItem="efn-Pp-UVm" firstAttribute="top" secondItem="edh-CZ-Lhe" secondAttribute="topMargin" constant="7" id="VFC-6g-M2P"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="efn-Pp-UVm" secondAttribute="trailing" constant="7" id="ff7-ub-qqe"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="DVG-t6-UNb" secondAttribute="bottom" constant="6.5" id="pHc-ID-rVX"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="efn-Pp-UVm" secondAttribute="bottom" constant="6.5" id="tGh-ao-bhM"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="label" destination="DVG-t6-UNb" id="r2z-RC-bzd"/>
+                                            <outlet property="newsImage" destination="efn-Pp-UVm" id="mOu-g3-o85"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -164,7 +196,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="今日热闻" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Rg-Xv-LVH">
                                     <rect key="frame" x="0.0" y="4" width="240" height="21"/>
                                     <animations/>
-                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -180,6 +212,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fgw-4F-wBU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2891" y="1783"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Q3k-EV-WaT">
+            <objects>
+                <viewController id="Qii-gx-H8R" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qa0-Py-J3z"/>
+                        <viewControllerLayoutGuide type="bottom" id="0fL-wc-ZIz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wvk-fM-AQF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6G6-bR-cjE">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6G6-bR-cjE" firstAttribute="bottom" secondItem="0fL-wc-ZIz" secondAttribute="top" id="1kh-UB-9a1"/>
+                            <constraint firstAttribute="trailing" secondItem="6G6-bR-cjE" secondAttribute="trailing" id="Hk6-Ri-mfE"/>
+                            <constraint firstItem="6G6-bR-cjE" firstAttribute="top" secondItem="wvk-fM-AQF" secondAttribute="top" id="U5v-r3-mCe"/>
+                            <constraint firstItem="6G6-bR-cjE" firstAttribute="leading" secondItem="wvk-fM-AQF" secondAttribute="leading" id="chP-fK-fdR"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2a0-dM-KXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2891" y="2496"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uT8-tu-jf0">
@@ -203,5 +267,6 @@
     </scenes>
     <resources>
         <image name="ic_menu_black_24dp" width="24" height="24"/>
+        <image name="zhihuBlue" width="74" height="66"/>
     </resources>
 </document>

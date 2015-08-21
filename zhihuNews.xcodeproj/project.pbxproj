@@ -13,6 +13,8 @@
 		DB0A60FF1B7CC4CC00E450E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB0A60FE1B7CC4CC00E450E4 /* Assets.xcassets */; };
 		DB0A61021B7CC4CC00E450E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0A61001B7CC4CC00E450E4 /* LaunchScreen.storyboard */; };
 		DB0A610A1B7CC5B000E450E4 /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = DB0A61091B7CC5B000E450E4 /* podfile */; };
+		DB120ED61B86B26400FC099B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB120ED51B86B26400FC099B /* DetailViewController.swift */; };
+		DB120ED81B86BC9500FC099B /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB120ED71B86BC9500FC099B /* NewsTableViewCell.swift */; };
 		DB1C91461B80280F0058684F /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1C91451B80280F0058684F /* PageCollectionViewCell.swift */; };
 		DB1C914A1B8057490058684F /* myUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1C91491B8057490058684F /* myUILabel.m */; };
 		DB1C914E1B80655C0058684F /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1C914D1B80655C0058684F /* UINavigationBar+Awesome.m */; };
@@ -30,6 +32,8 @@
 		DB0A61011B7CC4CC00E450E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB0A61031B7CC4CC00E450E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB0A61091B7CC5B000E450E4 /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		DB120ED51B86B26400FC099B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		DB120ED71B86BC9500FC099B /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		DB1C91451B80280F0058684F /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB1C91471B8056FA0058684F /* myUILabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myUILabel.h; sourceTree = "<group>"; };
 		DB1C91481B8057490058684F /* zhihuNews-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "zhihuNews-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 				DB1C91511B808E760058684F /* zhihuNewsViewController.swift */,
 				DB3A1B4E1B84AEA800BA3B75 /* HeadTableViewCell.swift */,
 				DB1C91451B80280F0058684F /* PageCollectionViewCell.swift */,
+				DB120ED71B86BC9500FC099B /* NewsTableViewCell.swift */,
+				DB120ED51B86B26400FC099B /* DetailViewController.swift */,
 				DB0A60F81B7CC4CB00E450E4 /* Main.storyboard */,
 				DB0A60FE1B7CC4CC00E450E4 /* Assets.xcassets */,
 				DB0A61001B7CC4CC00E450E4 /* LaunchScreen.storyboard */,
@@ -243,10 +249,12 @@
 			files = (
 				DB1C91521B808E760058684F /* zhihuNewsViewController.swift in Sources */,
 				DB1C914A1B8057490058684F /* myUILabel.m in Sources */,
+				DB120ED81B86BC9500FC099B /* NewsTableViewCell.swift in Sources */,
 				DB0A60F51B7CC4CB00E450E4 /* AppDelegate.swift in Sources */,
 				DB3A1B4F1B84AEA800BA3B75 /* HeadTableViewCell.swift in Sources */,
 				DB1C91461B80280F0058684F /* PageCollectionViewCell.swift in Sources */,
 				DB1C914E1B80655C0058684F /* UINavigationBar+Awesome.m in Sources */,
+				DB120ED61B86B26400FC099B /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
