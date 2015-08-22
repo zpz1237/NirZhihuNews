@@ -14,7 +14,7 @@ protocol DetailViewControllerDataSource {
     func newsId() -> String!
 }
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var webView: UIWebView!
     
@@ -22,6 +22,10 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.interactivePopGestureRecognizer?.enabled = true
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         
         Alamofire.request(.GET, URLString: "http://news-at.zhihu.com/api/4/news/"+self.dataSource!.newsId()).responseJSON(completionHandler: { (_, _, data, error) -> Void in
             let url = JSON(data!)["share_url"].string
@@ -33,7 +37,6 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

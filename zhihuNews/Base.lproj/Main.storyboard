@@ -231,6 +231,9 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="u5C-3r-IsY" appends="YES" id="1yf-Ft-ME2"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <animations/>
@@ -247,6 +250,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2a0-dM-KXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="u5C-3r-IsY"/>
             </objects>
             <point key="canvasLocation" x="3589" y="1783"/>
         </scene>

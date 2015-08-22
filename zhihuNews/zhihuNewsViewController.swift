@@ -20,7 +20,7 @@ class zhihuNewsViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         
         refreshData()
-        
+
         self.navigationController?.navigationBar.lt_setBackgroundColor(UIColor.clearColor())
     }
     
