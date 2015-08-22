@@ -126,7 +126,7 @@
                                             <outlet property="pageView" destination="Yq8-AH-SOn" id="j4v-bR-tJu"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="news" rowHeight="90" id="cyj-55-VIO" customClass="NewsTableViewCell" customModule="zhihuNews" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="news" rowHeight="90" id="cyj-55-VIO" customClass="NewsTableViewCell" customModule="zhihuNews" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="205" width="600" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cyj-55-VIO" id="edh-CZ-Lhe">
@@ -207,16 +207,17 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="SRX-tJ-l55" id="hbT-Ir-irs"/>
+                        <segue destination="Qii-gx-H8R" kind="show" id="Mvy-gj-2Pu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fgw-4F-wBU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2891" y="1783"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="Q3k-EV-WaT">
             <objects>
-                <viewController id="Qii-gx-H8R" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="webViewController" id="Qii-gx-H8R" customClass="DetailViewController" customModule="zhihuNews" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qa0-Py-J3z"/>
                         <viewControllerLayoutGuide type="bottom" id="0fL-wc-ZIz"/>
@@ -226,9 +227,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6G6-bR-cjE">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="-64" width="600" height="664"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                             </webView>
                         </subviews>
                         <animations/>
@@ -236,14 +238,17 @@
                         <constraints>
                             <constraint firstItem="6G6-bR-cjE" firstAttribute="bottom" secondItem="0fL-wc-ZIz" secondAttribute="top" id="1kh-UB-9a1"/>
                             <constraint firstAttribute="trailing" secondItem="6G6-bR-cjE" secondAttribute="trailing" id="Hk6-Ri-mfE"/>
-                            <constraint firstItem="6G6-bR-cjE" firstAttribute="top" secondItem="wvk-fM-AQF" secondAttribute="top" id="U5v-r3-mCe"/>
+                            <constraint firstItem="6G6-bR-cjE" firstAttribute="top" secondItem="wvk-fM-AQF" secondAttribute="top" constant="-64" id="U5v-r3-mCe"/>
                             <constraint firstItem="6G6-bR-cjE" firstAttribute="leading" secondItem="wvk-fM-AQF" secondAttribute="leading" id="chP-fK-fdR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="6G6-bR-cjE" id="9K8-eB-NAc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2a0-dM-KXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2891" y="2496"/>
+            <point key="canvasLocation" x="3589" y="1783"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uT8-tu-jf0">

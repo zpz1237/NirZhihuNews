@@ -14,13 +14,12 @@ class zhihuNewsViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
+    var selectedItem: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         refreshData()
-        
-        print(zdl().topItems.count)
-        print("viewDidLoad")
         
         self.navigationController?.navigationBar.lt_setBackgroundColor(UIColor.clearColor())
     }
@@ -32,16 +31,28 @@ class zhihuNewsViewController: UIViewController, UITableViewDataSource, UITableV
                 print("获取数据失败")
                 return
             }
-            let jsonTopStories = JSON(data!)["top_stories"]
+            let json = JSON(data!)
+            let jsonTopStories = json["top_stories"]
+            let jsonDetailStories = json["stories"]
+            
             self.zdl().topItems.removeAll()
+            self.zdl().detailItems.removeAll()
             
             for i in 0 ..< jsonTopStories.count {
                 self.zdl().topItems.append((jsonTopStories[i]["image"].string!, String(jsonTopStories[i]["id"]), jsonTopStories[i]["title"].string!))
             }
             
-            print(self.zdl().topItems.count)
-            print("refreshData")
+            for i in 0 ..< jsonDetailStories.count {
+                self.zdl().detailItems.append((jsonDetailStories[i]["images"][0].string!, String(jsonDetailStories[i]["id"]), jsonDetailStories[i]["title"].string!))
+            }
             
+            print(self.zdl().detailItems.count)
+            print("refreshDataDetailItems")
+            
+            print(self.tableView.visibleCells.count)
+            print("self.tableView.visibleCells.count")
+            (self.tableView.visibleCells[0] as! HeadTableViewCell).pageView.collectionView.reloadData()
+            self.tableView.reloadData()
         })
         
     }
@@ -62,7 +73,13 @@ class zhihuNewsViewController: UIViewController, UITableViewDataSource, UITableV
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier("news") as! NewsTableViewCell
+        
+        let item = zdl().detailItems[indexPath.item-1]
+        
+        cell.newsImage.sd_setImageWithURL(NSURL(string: item.images))
+        cell.label.text = item.label
         cell.label.verticalAlignment = VerticalAlignmentTop
+        
         return cell
         
     }
@@ -75,7 +92,10 @@ class zhihuNewsViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        print(zdl().detailItems.count)
+        print("numberOfItemInTableView")
+        //return 20
+        return zdl().detailItems.count + 1
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -95,14 +115,26 @@ class zhihuNewsViewController: UIViewController, UITableViewDataSource, UITableV
         self.scrollViewDidScroll(self.tableView)
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 0 {
+            return
+        } else {
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let detailViewController = storyBoard.instantiateViewControllerWithIdentifier("webViewController") as!DetailViewController
+            selectedItem = indexPath.row - 1
+            detailViewController.dataSource = self
+            self.navigationController?.pushViewController(detailViewController, animated: true)
+        }
+    }
 
 }
 
 extension zhihuNewsViewController : UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(zdl().topItems.count)
-        print("numberOfItem")
+        //print(zdl().topItems.count)
+        //print("numberOfItem")
         return zdl().topItems.count
     }
     
@@ -110,6 +142,7 @@ extension zhihuNewsViewController : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! PageCollectionViewCell
         
         let item = zdl().topItems[indexPath.item]
+        
         cell.imageView.sd_setImageWithURL(NSURL(string: item.image))
         cell.label.text = item.label
         cell.label.verticalAlignment = VerticalAlignmentBottom
@@ -121,6 +154,14 @@ extension zhihuNewsViewController : UICollectionViewDataSource {
 extension UINavigationController {
     public override func childViewControllerForStatusBarStyle() -> UIViewController? {
         return self.topViewController
+    }
+}
+
+extension zhihuNewsViewController : DetailViewControllerDataSource {
+    func newsId() -> String! {
+        print(selectedItem)
+        print("selectedItem")
+        return zdl().detailItems[selectedItem!].id
     }
 }
 

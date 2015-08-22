@@ -7,18 +7,41 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+
+protocol DetailViewControllerDataSource {
+    func newsId() -> String!
+}
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var webView: UIWebView!
+    
+    var dataSource: DetailViewControllerDataSource?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        Alamofire.request(.GET, URLString: "http://news-at.zhihu.com/api/4/news/"+self.dataSource!.newsId()).responseJSON(completionHandler: { (_, _, data, error) -> Void in
+            let url = JSON(data!)["share_url"].string
+            
+            self.webView.loadRequest(NSURLRequest(URL: NSURL(string: (url)!)!))
+            
+        })
+        
         // Do any additional setup after loading the view.
     }
 
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
     
 
