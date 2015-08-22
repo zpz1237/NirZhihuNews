@@ -11,8 +11,8 @@ import PagedHorizontalView
 
 class HeadTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var pageView: PagedHorizontalView!
-
+    @IBOutlet weak var pageView: LocalPagedHorizontalView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
