@@ -185,7 +185,7 @@ extension LocalPagedHorizontalView : UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let detailViewController = storyBoard.instantiateViewControllerWithIdentifier("WebViewController") as!DetailViewController
+        let detailViewController = storyBoard.instantiateViewControllerWithIdentifier("webViewController") as!DetailViewController
         selectedItem = indexPath.item
         detailViewController.dataSource = self
         (self.window?.rootViewController as! UINavigationController).pushViewController(detailViewController, animated: true)

@@ -18,7 +18,7 @@ class zhihuNewsViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         refreshData()
 
         self.navigationController?.navigationBar.lt_setBackgroundColor(UIColor.clearColor())
@@ -101,8 +101,8 @@ class zhihuNewsViewController: UIViewController, UITableViewDataSource, UITableV
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let color = UIColor(red: 0/255.0, green: 139/255.0, blue: 255/255.0, alpha: 1)
         let offsetY = scrollView.contentOffset.y
-        if offsetY > 20 {
-            let alpha = min(1, 1 - ((20 + 64 - offsetY) / 64))
+        if offsetY > 30 {
+            let alpha = min(1, 1 - ((30 + 64 - offsetY) / 64))
             self.navigationController?.navigationBar.lt_setBackgroundColor(color.colorWithAlphaComponent(alpha))
         } else {
             self.navigationController?.navigationBar.lt_setBackgroundColor(color.colorWithAlphaComponent(0))
@@ -113,6 +113,7 @@ class zhihuNewsViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewWillAppear(true)
         self.tableView.delegate = self
         self.scrollViewDidScroll(self.tableView)
+        self.navigationController?.navigationBar.hidden = false
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
@@ -153,6 +154,9 @@ extension zhihuNewsViewController : UICollectionViewDataSource {
 
 extension UINavigationController {
     public override func childViewControllerForStatusBarStyle() -> UIViewController? {
+        return self.topViewController
+    }
+    public override func childViewControllerForStatusBarHidden() -> UIViewController? {
         return self.topViewController
     }
 }

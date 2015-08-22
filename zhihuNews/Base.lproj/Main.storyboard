@@ -249,7 +249,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="hCR-S4-wiW">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" image="ic_menu_black_24dp" id="lQW-JH-8tR">
+                        <barButtonItem key="leftBarButtonItem" id="lQW-JH-8tR">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="OEz-Js-Ot3">
@@ -304,7 +304,9 @@
                         <constraints>
                             <constraint firstItem="6G6-bR-cjE" firstAttribute="bottom" secondItem="0fL-wc-ZIz" secondAttribute="top" id="1kh-UB-9a1"/>
                             <constraint firstAttribute="trailing" secondItem="6G6-bR-cjE" secondAttribute="trailing" id="Hk6-Ri-mfE"/>
-                            <constraint firstItem="6G6-bR-cjE" firstAttribute="top" secondItem="wvk-fM-AQF" secondAttribute="top" constant="-64" id="U5v-r3-mCe"/>
+                            <constraint firstItem="6G6-bR-cjE" firstAttribute="top" secondItem="wvk-fM-AQF" secondAttribute="top" constant="-64" id="U5v-r3-mCe">
+                                <variation key="widthClass=compact" constant="-64"/>
+                            </constraint>
                             <constraint firstItem="6G6-bR-cjE" firstAttribute="leading" secondItem="wvk-fM-AQF" secondAttribute="leading" id="chP-fK-fdR"/>
                         </constraints>
                     </view>
@@ -338,7 +340,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_menu_black_24dp" width="24" height="24"/>
         <image name="zhihuBlue" width="74" height="66"/>
     </resources>
 </document>

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PagedHorizontalView
 
 class HeadTableViewCell: UITableViewCell {
     
