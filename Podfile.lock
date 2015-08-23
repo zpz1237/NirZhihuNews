@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (1.3.1)
+  - MJRefresh (2.4.7)
   - PagedHorizontalView (1.0.0)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
@@ -8,6 +9,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 1.3)
+  - MJRefresh
   - PagedHorizontalView
   - SDWebImage (~> 3.7)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`, branch `xcode7`)
@@ -24,6 +26,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: e4ab637e3195b645c814b87a652373439e59f2a4
+  MJRefresh: 6eb2f61338f89f64fd628fd43debcf479381ff59
   PagedHorizontalView: b88ed6c22eec170d45518a90072e683bed622d58
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SwiftyJSON: ae2d0a3d68025d136602a33c4ee215091ced3e33

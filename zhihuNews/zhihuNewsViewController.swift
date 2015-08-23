@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import MJRefresh
+import SDWebImage
 
 class zhihuNewsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
     
@@ -19,6 +21,8 @@ class zhihuNewsViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshData")
+        
         refreshData()
 
         self.navigationController?.navigationBar.lt_setBackgroundColor(UIColor.clearColor())
@@ -53,6 +57,7 @@ class zhihuNewsViewController: UIViewController, UITableViewDataSource, UITableV
             print("self.tableView.visibleCells.count")
             (self.tableView.visibleCells[0] as! HeadTableViewCell).pageView.collectionView.reloadData()
             self.tableView.reloadData()
+            self.tableView.header.endRefreshing()
         })
         
     }

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>PagedHorizontalView-PagedHorizontalView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>136377EA0199DC6B653C494131E00BA7</key>
+		<key>1F46181907B7A6F94F87AA326E1C741E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7A1A77F11519E59C188A029F71626028</key>
+		<key>2705554936D86E4DEC0939C7110D2625</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>86CD29D21E4D39EFA135236E32F48E73</key>
+		<key>3B4EC2D4F7EAE0F9B4F59BDD64668059</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>40AB9E2DC3B032F9BE20F06A126ACE7F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9666688CB41B38A9914616144C9C7A3E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>99E7B691B8C29E02F0236FFFCD68B6FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>B9A04D3C9B208813656510FDA8ADAE02</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F5D48204D1C0FD1F21F21E9A4344080F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

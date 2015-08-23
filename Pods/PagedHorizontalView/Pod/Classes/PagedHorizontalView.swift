@@ -177,10 +177,4 @@ extension PagedHorizontalView : UICollectionViewDelegateFlowLayout {
         let page = (scrollView.contentOffset.x + (0.5 * width)) / width
         currentIndex = Int(page)
     }
-    
-    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-        print(indexPath.item)
-    }
-    
 }
